@@ -1,0 +1,10 @@
+D:\Env_Pty_Ltd\Programms\RFID-DLL-CSharp\RFIDcard\bin\Debug\RFIDcard.exe.config
+D:\Env_Pty_Ltd\Programms\RFID-DLL-CSharp\RFIDcard\bin\Debug\RFIDcard.exe
+D:\Env_Pty_Ltd\Programms\RFID-DLL-CSharp\RFIDcard\bin\Debug\RFIDcard.pdb
+D:\Env_Pty_Ltd\Programms\RFID-DLL-CSharp\RFIDcard\obj\Debug\RFIDcard.csproj.AssemblyReference.cache
+D:\Env_Pty_Ltd\Programms\RFID-DLL-CSharp\RFIDcard\obj\Debug\RFIDcard.Form1.resources
+D:\Env_Pty_Ltd\Programms\RFID-DLL-CSharp\RFIDcard\obj\Debug\RFIDcard.Properties.Resources.resources
+D:\Env_Pty_Ltd\Programms\RFID-DLL-CSharp\RFIDcard\obj\Debug\RFIDcard.csproj.GenerateResource.cache
+D:\Env_Pty_Ltd\Programms\RFID-DLL-CSharp\RFIDcard\obj\Debug\RFIDcard.csproj.CoreCompileInputs.cache
+D:\Env_Pty_Ltd\Programms\RFID-DLL-CSharp\RFIDcard\obj\Debug\RFIDcard.exe
+D:\Env_Pty_Ltd\Programms\RFID-DLL-CSharp\RFIDcard\obj\Debug\RFIDcard.pdb

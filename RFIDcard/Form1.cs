@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -18,8 +11,6 @@ namespace RFIDcard
         public static extern int PMSifRegister(string szLicense, string szApplName);
 
         [DllImport(@"C:\Program Files (x86)\ASSA ABLOY\Vision\pmsif.dll", CallingConvention = CallingConvention.StdCall)]
-        //public static extern IntPtr PMSifReturnKcdLcl(out char ff, byte[] Dta, bool Dbg, string szOpID, string szOpFirst, string szOpLast);
-        //public static extern IntPtr PMSifReturnKcdLcl(byte[] ff, byte[] Dta, bool Dbg, string szOpID, string szOpFirst, string szOpLast);
         public static extern IntPtr PMSifReturnKcdLcl(out byte ff, byte[] Dta, bool Dbg, string szOpID, string szOpFirst, string szOpLast);
 
         public Form1()
@@ -36,18 +27,10 @@ namespace RFIDcard
         private void button2_Click(object sender, EventArgs e)
         {
             byte Cmd;
-            //Cmd = new byte[1];// { 0x49 };
-
             string Tmp;
-            string TmpDta = "";
 
-            //string dta;
             byte[] dta;
-            //dta = (new char[301]).ToString();
             dta = new byte[301];
-
-            char[] dta_tmp;
-            dta_tmp = new char[301];
 
             int i;
 
@@ -60,24 +43,19 @@ namespace RFIDcard
             Tmp = CmdBox.Text;
             Cmd = Convert.ToByte(Tmp[0]); //Encoding.ASCII.GetBytes(Tmp);
 
-            //TmpDta = BuildDataFrame(Cmd[0]);
+            string TmpDta;
             BuildDataFrame(Cmd, out TmpDta);
 
             if (TmpDta.Length > 0)
             {
                 for(i = 0; i < TmpDta.Length; i++)
                 {
-                    //dta.
                     dta[i] = Convert.ToByte(TmpDta[i]);
-                    //dta_tmp[i]= TmpDta.ToCharArray()[i];
-
                 }
 
                 for (i = TmpDta.Length; i < 301; i++)
                 {
                     dta[i] = 0;
-                    //dta_tmp[i] = '0';
-
                 }
             }
             else
@@ -85,25 +63,10 @@ namespace RFIDcard
                 for (i = 0; i < 301; i++)
                 {
                     dta[i] = 0;
-                    //dta_tmp[i] = '0';
                 }
             }
 
-            //dta = dta_tmp[].ToString();
-            //dta = new string(dta_tmp);
-
-            //MessageBox.Show(Convert.ToString(dta.Length), "Report");
-
-            //char a = 'I';
-            //byte a;// = 73;
-            //a = Convert.ToString(Cmd[0]);
-            //a = Cmd[0];
-            //PMSifReturnKcdLcl(Cmd, dta, false, "7289", "Jason", "Phillips");
             PMSifReturnKcdLcl(out Cmd, dta, false, "7289", "Jason", "Phillips");
-
-            //textBox4.Text = ((char)Cmd[0]).ToString();
-            //textBox4.Text = Convert.ToString(a);
-            //textBox4.Text = ((char)a).ToString();
             textBox4.Text = ((char)Cmd).ToString();
 
             richTextBox1.Clear();
@@ -117,8 +80,6 @@ namespace RFIDcard
 
         private void BuildDataFrame(byte Command, out string Data)
         {
-            //string Data;
-
             char code = (char)30;
 
             if ( R2Box.Text == "")
@@ -206,8 +167,6 @@ namespace RFIDcard
             }
 
             Data = Data + code.ToString() + "J1" + code.ToString() + "S048FCB924E6880" + code.ToString() + "VEB0D8F1F";
-
-            //return Data;
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
